@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+import { Router } from '@angular/router';
+
+import { TranslateService } from '@ngx-translate/core';
+import { PrimeNGConfig } from 'primeng/api';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +12,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'algafood-ui';
+
+  constructor(
+    private config: PrimeNGConfig,
+    private translateService: TranslateService
+  ) { }
+
+  ngOnInit() {
+    this.translateService.setDefaultLang('pt');
+    this.translateService.get('primeng')
+      .subscribe(res => this.config.setTranslation(res));
+  }
+
 }
