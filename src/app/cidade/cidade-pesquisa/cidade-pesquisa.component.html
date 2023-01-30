@@ -1,1 +1,37 @@
-<p>cidade-pesquisa works!</p>
+<div class="container">
+
+    <div class="grid">
+        <div class="col-12">
+            <p-table [value]="cidades" #tabela>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nome</th>                        
+                        <th>Estado</th>
+                        <th class="col-acoes-header"></th>
+                      </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-cidade>
+                    <tr>
+                        <td>
+                            <span class="p-column-title">Nome</span>
+                                {{ cidade.nome }}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Estados</span>
+                                {{ cidade.estado?.nome }}
+                        </td>
+                        <td class="col-acoes">
+                            <span class="p-column-title"></span>
+                            <a pButton style="margin-right: 5px;" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                              [routerLink]="['/cidades', cidade.id]"></a>
+                            <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                              (click)="confirmarExclusao(cidade)"></button>
+                          </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    
+</div>
