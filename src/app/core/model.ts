@@ -1,7 +1,11 @@
 export class Cidade {
     id?: number;
     nome?: string;
-    estado = new Estado();
+    estado = new EstadoId();
+}
+
+export class EstadoId {
+    id?: number;
 }
 
 export class Estado {
