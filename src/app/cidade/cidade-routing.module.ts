@@ -19,7 +19,7 @@ const routes: Routes = [
     data: { roles: ['EDITAR_CIDADES'] }
   },
   {
-    path: ':codigo',
+    path: ':id',
     component: CidadeCadastroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['EDITAR_CIDADES'] }

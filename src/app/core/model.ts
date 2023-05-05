@@ -1,5 +1,4 @@
-export class Cidade {
-    id?: number;
+export class CidadeInput {    
     nome?: string;
     estado = new EstadoId();
 }
@@ -10,5 +9,9 @@ export class EstadoId {
 
 export class Estado {
     id?: number;
+    nome?: string;
+}
+
+export class CozinhaInput {
     nome?: string;
 }

@@ -1,37 +1,32 @@
 <div class="p-grid">
     <div class="p-col-12">
         <div class="card">
-            <h2>Cidades</h2>
+            <h2>Cozinhas</h2>
             <p-toolbar styleClass="p-mb-4">
                 <ng-template pTemplate="left">
-                    <button pButton pRipple label="Nova Cidade" icon="pi pi-plus"
-                        class="p-button-success p-mr-2 p-mb-2" (click)="novaCidade()"></button>
+                    <button pButton pRipple label="Nova Cozinha" icon="pi pi-plus"
+                        class="p-button-success p-mr-2 p-mb-2" (click)="novaCozinha()"></button>
                 </ng-template>
             </p-toolbar>
-            <p-table [value]="cidades" #tabela>
+            <p-table [value]="cozinhas" #tabela>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Nome</th>
-                        <th>Estado</th>
+                        <th>Nome</th>                        
                         <th></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-cidade>
+                <ng-template pTemplate="body" let-cozinha>
                     <tr>
                         <td>
                             <span class="p-column-title">Nome</span>
-                            {{ cidade.nome }}
-                        </td>
-                        <td>
-                            <span class="p-column-title">Estados</span>
-                            {{ cidade.estado?.nome }}
-                        </td>
+                            {{ cozinha.nome }}
+                        </td>                        
                         <td class="col-acoes">
                             <span class="p-column-title"></span>
                             <a pButton style="margin-right: 5px;" icon="pi pi-pencil" pTooltip="Editar"
-                                tooltipPosition="top" [routerLink]="['/cidades', cidade.id]"></a>
+                                tooltipPosition="top" [routerLink]="['/cidades', cozinha.id]"></a>
                             <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
-                                (click)="confirmarExclusao(cidade)"></button>
+                                (click)="confirmarExclusao(cozinha)"></button>
                         </td>
                     </tr>
                 </ng-template>

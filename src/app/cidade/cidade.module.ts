@@ -7,14 +7,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
+import { ToolbarModule } from 'primeng/toolbar';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { CoreModule } from '../core/core.module';
 import { CidadePesquisaComponent } from './cidade-pesquisa/cidade-pesquisa.component';
 import { CidadeCadastroComponent } from './cidade-cadastro/cidade-cadastro.component';
 import { CidadeRoutingModule } from './cidade-routing.module';
-
-
-
 
 @NgModule({
   declarations: [
@@ -25,12 +24,15 @@ import { CidadeRoutingModule } from './cidade-routing.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
 
     InputTextModule,
     ButtonModule,
     TableModule,
     TooltipModule,
+    ToolbarModule,
+    DropdownModule,
 
     CoreModule,
     CidadeRoutingModule

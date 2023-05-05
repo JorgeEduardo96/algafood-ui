@@ -15,6 +15,10 @@
         <a routerLink="/cidades">Cidades</a>
       </li>    
   
+      <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_COZINHAS')">
+        <a routerLink="/cozinhas">Cozinhas</a>
+      </li>
+
       <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
         <a routerLink="/lancamentos">Lançamentos</a>
       </li>

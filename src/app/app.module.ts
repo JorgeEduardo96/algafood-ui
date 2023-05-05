@@ -10,6 +10,7 @@ import { SegurancaModule } from './seguranca/seguranca.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 
+
 @NgModule({
   declarations: [
     AppComponent

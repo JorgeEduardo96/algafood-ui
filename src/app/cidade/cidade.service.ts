@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { RemoteGateway } from '../core/remote.gateway';
-import { Cidade } from '../core/model';
+import { CidadeInput } from '../core/model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +27,12 @@ export class CidadeService {
     return this.remoteGateway.delete(`${this.url}/${id}`)
    }
 
-   adicionar(cidade: Cidade): Observable<void> {
+   adicionar(cidade: CidadeInput): Observable<void> {
     return this.remoteGateway.post(this.url, cidade);
    }
 
-   atualizar(cidade: Cidade): Observable<void> {
-    return this.remoteGateway.put(`${this.url}/${cidade.id}`, cidade);
+   atualizar(cidade: CidadeInput, cidadeId: number): Observable<void> {
+    return this.remoteGateway.put(`${this.url}/${cidadeId}`, cidade);
    }
   
 }

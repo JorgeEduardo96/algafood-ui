@@ -1,14 +1,39 @@
-<div class="container">
-    <div class="grid">
-        <div class="col-6">
-            <label>Nome: </label>
-            <input name="nome" type="text" pInputText [(ngModel)]="cidade.nome" />
-        </div>
-        <div class="col-6">
-            <label>Estado: </label>
-            <select name="estados" [(ngModel)]="estadoSelecionado">
-                <option name="estadoSelecionado" ngDefaultControl *ngFor="let estado of estados" value="{{estado.id}}">{{estado.nome}}</option>
-            </select>
-        </div>
+<div class="p-grid">
+    <div class="p-col-12">
+        <form [formGroup]="cidadeForm.group">
+            <div class="card">
+                <h4>Cidade</h4>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-4 p-md-4">
+                        <label for="nome">Nome</label>
+                        <input type="text" placeholder="Nome" formControlName="nome" pInputText>
+                        <app-message [control]="cidadeForm.group.get('nome')" error="required"
+                            text="Informe um nome"></app-message>
+                    </div>
+                    <div class="p-field p-col-4 p-md-4">
+                        <label for="nome">Estado</label>
+                        <p-dropdown [options]="estados" formControlName="estado" optionValue="id" optionLabel="nome"></p-dropdown>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end">
+                    <button
+                        pButton
+                        style="margin-right: 5px;"
+                        class="p-button-secondary"
+                        type="button"
+                        (click)="voltarParaListagem()"
+                        label="Cancelar"
+                    ></button>
+                    <button
+                        pButton
+                        pRipple
+                        type="button"
+                        (click)="onSubmit()"
+                        [disabled]="!cidadeForm.group.valid"
+                        label="Salvar"
+                    ></button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
