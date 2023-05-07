@@ -37,9 +37,7 @@ export class CidadeCadastroComponent {
     if (this.cidadeId) {
       this.cidadeService.buscar(Number(this.cidadeId)).subscribe({
         next: (response) => {
-          console.log("retorno back cidade", response);
           this.cidadeForm.init(response);
-          console.log("valor do formulário", this.cidadeForm);
           this.atualizarTituloEdicao();
         }, error: (error) => this.errorHandler.handle(error)
       })

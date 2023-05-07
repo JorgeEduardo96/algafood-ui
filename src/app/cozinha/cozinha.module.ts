@@ -13,10 +13,12 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CoreModule } from '../core/core.module';
 import { CozinhaPesquisaComponent } from "./cozinha-pesquisa/cozinha-pesquisa.component";
 import { CozinhaRoutingModule } from "./cozinha-routing.module";
+import { CozinhaCadastroComponent } from './cozinha-cadastro/cozinha-cadastro.component';
 
 @NgModule({
     declarations: [
-        CozinhaPesquisaComponent
+        CozinhaPesquisaComponent,
+        CozinhaCadastroComponent
     ],
     imports:[
         CommonModule,

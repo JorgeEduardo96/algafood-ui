@@ -1,0 +1,35 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <form [formGroup]="cozinhaForm.group">
+            <div class="card">
+                <h4>Cozinha</h4>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-4 p-md-4">
+                        <label for="nome">Nome</label>
+                        <input type="text" placeholder="Nome" formControlName="nome" pInputText>
+                        <app-message [control]="cozinhaForm.group.get('nome')" error="required"
+                            text="Informe um nome"></app-message>
+                    </div>                   
+                </div>
+                <div style="display: flex; justify-content: flex-end">
+                    <button
+                        pButton
+                        style="margin-right: 5px;"
+                        class="p-button-secondary"
+                        type="button"
+                        (click)="voltarParaListagem()"
+                        label="Cancelar"
+                    ></button>
+                    <button
+                        pButton
+                        pRipple
+                        type="button"
+                        (click)="onSubmit()"
+                        [disabled]="!cozinhaForm.group.valid"
+                        label="Salvar"
+                    ></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

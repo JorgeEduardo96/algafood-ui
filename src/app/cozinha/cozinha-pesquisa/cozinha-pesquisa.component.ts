@@ -36,7 +36,6 @@ export class CozinhaPesquisaComponent implements OnInit {
     this.cozinhaService.listar().subscribe({
       next: (response) => {
         this.cozinhas = response._embedded['cozinhas'];
-        console.log(this.cozinhas);
       }, error: (error) => this.errorHandler.handle(error)
     })
   }
