@@ -8,6 +8,7 @@ const routes: Routes = [
   
   { path: 'cidades', loadChildren: () => import('../app/cidade/cidade.module').then(m => m.CidadeModule)  },
   { path: 'cozinhas', loadChildren: () => import('../app/cozinha/cozinha.module').then(m => m.CozinhaModule)  },
+  { path: 'grupos', loadChildren: () => import('../app/grupo/grupo.module').then(m => m.GrupoModule)  },
 
 
   { path: '', redirectTo: 'cidades', pathMatch: 'full' }, 

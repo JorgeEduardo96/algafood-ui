@@ -15,3 +15,7 @@ export class Estado {
 export class CozinhaInput {
     nome?: string;
 }
+
+export class GrupoInput {
+    nome?: string;
+}

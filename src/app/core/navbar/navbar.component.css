@@ -38,6 +38,7 @@
 
 .navbar-menuitem {
     padding: 15px;
+    list-style: none;
 }
 
 .navbar-menuitem a {
@@ -51,4 +52,8 @@
 
 .navbar-menuitem.ativo {
     background-color: #494541;
+}
+
+.summary-header {
+    color: #fff;
 }
