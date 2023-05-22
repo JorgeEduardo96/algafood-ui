@@ -1,0 +1,69 @@
+<form [formGroup]="restauranteForm.group">
+    <h4>Restaurante</h4>
+    <div class="grid">
+        <div class="col-3">
+            <label for="nome">Nome: </label>
+            <input type="text" placeholder="Nome" formControlName="nome" pInputText>
+            <app-message [control]="restauranteForm.group.get('nome')" error="required"
+                text="Informe um nome"></app-message>
+        </div>
+        <div class="col-3">
+            <label for="cozinha">Cozinha: </label>
+            <p-dropdown [options]="cozinhas" formControlName="cozinha" optionValue="id" optionLabel="nome"></p-dropdown>
+        </div>
+        <div class="col-6">
+            <label for="taxaFrete">Taxa Frete: </label>
+            <p-inputNumber formControlName="taxaFrete" locale="pt-BR" [min]="0" mode="decimal" [minFractionDigits]="2"
+                [maxFractionDigits]="5"></p-inputNumber>
+            <app-message [control]="restauranteForm.group.get('taxaFrete')" error="required"
+                text="Informe uma taxa de frete"></app-message>
+        </div>
+        <p-panel header="Endereço">
+            <div formGroupName="endereco">
+                <div class="col-6">
+                    <label for="cep">CEP: </label>
+                    <input type="text" placeholder="CEP" formControlName="cep" (keydown.f2)="buscarCep($event)"
+                        pInputText>
+                    <small>Pressione F2 para buscar</small>
+                    <app-message [control]="restauranteForm.endereco.get('cep')" error="required"
+                        text="Informe um cep"></app-message>
+                </div>
+                <div class="col-12">
+                    <label for="logradouro">Logradouro: </label>
+                    <input type="text" style="width: 100%;" placeholder="Logradouro" formControlName="logradouro" pInputText>
+                    <app-message [control]="restauranteForm.endereco.get('logradouro')" error="required"
+                        text="Informe um logradouro"></app-message>
+                </div>
+                <div class="col-6">
+                    <label for="bairro">Bairro: </label>
+                    <input type="text" placeholder="Bairro" formControlName="bairro" pInputText>
+                    <app-message [control]="restauranteForm.endereco.get('bairro')" error="required"
+                        text="Informe um bairro"></app-message>
+                </div>
+                <div class="col-6">
+                    <label for="numero">Número: </label>
+                    <input type="text" placeholder="Número" formControlName="numero" pInputText>
+                    <app-message [control]="restauranteForm.endereco.get('numero')" error="required"
+                        text="Informe um número"></app-message>
+                </div>
+                <div class="col-6">
+                    <label for="cidade">Cidade: </label>
+                    <p-dropdown [options]="cidades" formControlName="cidade" optionValue="id"
+                        optionLabel="nome"></p-dropdown>
+                    <app-message [control]="restauranteForm.endereco.get('cidade')" error="required"
+                        text="Informe uma cidade"></app-message>
+                </div>
+                <div class="col-6">
+                    <label for="complemento">Complemento: </label>
+                    <textarea rows="5" cols="60" pInputTextarea formControlName="complemento" [autoResize]="true"></textarea>
+                </div>
+            </div>
+        </p-panel>
+        <div >
+            <button pButton style="margin-right: 5px;" class="p-button-secondary" type="button"
+                (click)="voltarParaListagem()" label="Cancelar"></button>
+            <button pButton pRipple type="button" (click)="onSubmit()" [disabled]="!restauranteForm.group.valid"
+                label="Salvar"></button>
+        </div>
+    </div>
+</form>

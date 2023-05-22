@@ -1,13 +1,13 @@
 <div class="p-grid">
     <div class="p-col-12">
-        <form [formGroup]="grupoForm.group">
+        <form [formGroup]="estadoForm.group">
             <div class="card">
-                <h4>Grupo</h4>
+                <h4>Estado</h4>
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col-4 p-md-4">
                         <label for="nome">Nome</label>
                         <input type="text" placeholder="Nome" formControlName="nome" pInputText>
-                        <app-message [control]="grupoForm.group.get('nome')" error="required"
+                        <app-message [control]="estadoForm.group.get('nome')" error="required"
                             text="Informe um nome"></app-message>
                     </div>                   
                 </div>
@@ -25,7 +25,7 @@
                         pRipple
                         type="button"
                         (click)="onSubmit()"
-                        [disabled]="!grupoForm.group.valid"
+                        [disabled]="!estadoForm.group.valid"
                         label="Salvar"
                     ></button>
                 </div>

@@ -1,15 +1,14 @@
 import { Injectable } from "@angular/core";
 import { RemoteGateway } from "../core/remote.gateway";
 import { Observable } from "rxjs";
-
-import { CozinhaInput } from "../core/model";
+import { RestauranteInput } from "../core/model";
 
 @Injectable({
     providedIn: 'root'
 })
-export class CozinhaService {
+export class RestauranteService {
 
-    url: string = 'cozinhas';
+    url: string = 'restaurantes';
 
     constructor(
         private remoteGateway: RemoteGateway
@@ -27,11 +26,12 @@ export class CozinhaService {
         return this.remoteGateway.delete(`${this.url}/${id}`)
     }
 
-    adicionar(cozinha: CozinhaInput): Observable<void> {
-        return this.remoteGateway.post(this.url, cozinha);
+    adicionar(restaurante: RestauranteInput): Observable<void> {
+        return this.remoteGateway.post(this.url, restaurante);
     }
 
-    atualizar(cozinha: CozinhaInput, cozinhaId: number): Observable<void> {
-        return this.remoteGateway.put(`${this.url}/${cozinhaId}`, cozinha);
+    atualizar(restaurante: RestauranteInput, restauranteId: number): Observable<void> {
+        return this.remoteGateway.put(`${this.url}/${restauranteId}`, restaurante);
     }
+
 }

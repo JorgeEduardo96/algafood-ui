@@ -1,32 +1,32 @@
 <div class="p-grid">
     <div class="p-col-12">
         <div class="card">
-            <h2>Grupos</h2>
+            <h2>Estados</h2>
             <p-toolbar styleClass="p-mb-4">
                 <ng-template pTemplate="left">
-                    <button pButton pRipple label="Novo Grupo" icon="pi pi-plus"
-                        class="p-button-success p-mr-2 p-mb-2" (click)="novoGrupo()"></button>
+                    <button pButton pRipple label="Novo Estado" icon="pi pi-plus"
+                        class="p-button-success p-mr-2 p-mb-2" (click)="novoEstado()"></button>
                 </ng-template>
             </p-toolbar>
-            <p-table [value]="grupos" #tabela>
+            <p-table [value]="estados" #tabela>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Nome</th>                        
+                        <th>Nome</th>
                         <th></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-grupo>
+                <ng-template pTemplate="body" let-estado>
                     <tr>
                         <td>
                             <span class="p-column-title">Nome</span>
-                            {{ grupo.nome }}
+                            {{ estado.nome }}
                         </td>                        
                         <td class="col-acoes">
                             <span class="p-column-title"></span>
                             <a pButton style="margin-right: 5px;" icon="pi pi-pencil" pTooltip="Editar"
-                                tooltipPosition="top" [routerLink]="['/grupos', grupo.id]"></a>
+                                tooltipPosition="top" [routerLink]="['/estados', estado.id]"></a>
                             <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
-                                (click)="confirmarExclusao(grupo)"></button>
+                                (click)="confirmarExclusao(estado)"></button>
                         </td>
                     </tr>
                 </ng-template>

@@ -24,6 +24,12 @@
           <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_USUARIOS_GRUPOS_PERMISSOES')">
             <a routerLink="/grupos">Grupos</a>
           </li>
+          <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_USUARIOS_GRUPOS_PERMISSOES')">
+            <a routerLink="/estados">Estados</a>
+          </li>
+          <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_RESTAURANTES')">
+            <a routerLink="/restaurantes">Restaurantes</a>
+          </li>        
         </ul>
       </details>      
     </li>

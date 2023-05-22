@@ -13,6 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CoreModule } from '../core/core.module';
 import { GrupoPesquisaComponent } from "./grupo-pesquisa/grupo-pesquisa.component";
 import { GrupoCadastroComponent } from "./grupo-cadastro/grupo-cadastro.component";
+import { GrupoRoutingModule } from "./grupo-routing.module";
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { GrupoCadastroComponent } from "./grupo-cadastro/grupo-cadastro.componen
         DropdownModule,
 
         CoreModule,
+        GrupoRoutingModule
     ]
 })
 export class GrupoModule {}

@@ -14,6 +14,7 @@ import { NaoAutorizadoComponent } from './nao-autorizado.component';
 import { MessageComponent } from './message/message.component';
 import { RemoteGateway } from './remote.gateway';
 import { ErrorHandlerService } from './error-handler.service';
+import { ViaCEPService } from './viacep.service';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -44,7 +45,8 @@ registerLocaleData(localePt, 'pt-BR');
 
     ErrorHandlerService,
     RemoteGateway,
-    AuthService
+    AuthService,
+    ViaCEPService
   ]
 })
 export class CoreModule { }

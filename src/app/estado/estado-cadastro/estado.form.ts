@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Injectable()
-export class CozinhaForm {
+export class EstadoForm {
     group: FormGroup;
 
     constructor(formBuilder: FormBuilder) {
@@ -15,19 +15,20 @@ export class CozinhaForm {
         this.group?.reset();
     }
 
-    init(cozinha: any) {
+    init(estado: any) {
         this.group?.patchValue({
-            nome: cozinha.nome
+            nome: estado.nome
         })
     }
 
-    get cozinhaValue(): any {
+    get estadoValue(): any {
         return {
-           nome: this.group.get('nome')?.value
+            nome: this.group.get('nome')?.value
         } as any
     }
 
     get nome(): string {
         return this.group.get('nome')?.value;
     }
+
 }

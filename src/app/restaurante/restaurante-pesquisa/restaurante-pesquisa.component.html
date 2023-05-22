@@ -1,0 +1,72 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <div class="card">
+            <h2>Restaurantes</h2>
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label="Novo Restaurante" icon="pi pi-plus"
+                        class="p-button-success p-mr-2 p-mb-2" (click)="novoRestaurante()"></button>
+                </ng-template>
+            </p-toolbar>
+            <p-table [value]="restaurantes" #tabela>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Taxa Frete</th>
+                        <th>Cozinha</th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-restaurante>
+                    <tr>
+                        <td>
+                            <span class="p-column-title">Nome</span>
+                            {{ restaurante.nome }}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Taxa de Frete</span>
+                            {{ restaurante.taxaFrete | currency }}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Cozinha</span>
+                            {{ restaurante.cozinha.nome }}
+                        </td>
+                        <td class="col-acoes">
+                            <span class="p-column-title"></span>
+                            <a pButton style="margin-right: 5px;" icon="pi pi-pencil" pTooltip="Editar"
+                                tooltipPosition="top" [routerLink]="['/restaurantes', restaurante.id]"></a>
+                            <button pButton style="margin-right: 5px;" icon="pi pi-trash" pTooltip="Excluir"
+                                tooltipPosition="top" (click)="confirmarExclusao(restaurante)"></button>
+                            <button pButton icon="pi pi-money-bill" pTooltip="Formas de Pagamento" tooltipPosition="top"
+                                (click)="exibirDialogFormasPagamento(restaurante.id)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Formas de Pagamento" [(visible)]="exibirModal" [modal]="true" [style]="{ width: '50vw' }"
+    [draggable]="false" [resizable]="false">
+    <p-table [value]="restaurantesFormaPagamento" #tabelaFormaPagamento>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nome</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-formaPagamento>
+            <tr>
+                <td>
+                    <span class="p-column-title">Nome</span>
+                    {{ formaPagamento.descricao }}
+                </td>
+                <td class="col-acoes">
+                    <button pButton style="margin-right: 5px;" icon="pi pi-times" pTooltip="Desassociar"
+                        tooltipPosition="top" (click)="desassociarFormaPagamento(formaPagamento.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-dialog>
