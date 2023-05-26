@@ -9,27 +9,28 @@
                         <input type="text" placeholder="Nome" formControlName="nome" pInputText>
                         <app-message [control]="grupoForm.group.get('nome')" error="required"
                             text="Informe um nome"></app-message>
-                    </div>                   
+                    </div>
                 </div>
                 <div style="display: flex; justify-content: flex-end">
-                    <button
-                        pButton
-                        style="margin-right: 5px;"
-                        class="p-button-secondary"
-                        type="button"
-                        (click)="voltarParaListagem()"
-                        label="Cancelar"
-                    ></button>
-                    <button
-                        pButton
-                        pRipple
-                        type="button"
-                        (click)="onSubmit()"
-                        [disabled]="!grupoForm.group.valid"
-                        label="Salvar"
-                    ></button>
+                    <button pButton style="margin-right: 5px;" class="p-button-secondary" type="button"
+                        (click)="voltarParaListagem()" label="Cancelar"></button>
+                    <button pButton pRipple type="button" (click)="onSubmit()" [disabled]="!grupoForm.group.valid"
+                        label="Salvar"></button>
                 </div>
             </div>
+            <p-pickList *ngIf="editando" [source]="listaResultante" [target]="permissoesGrupo" sourceHeader="Permissões"
+                targetHeader="Permissões do Grupo" [dragdrop]="true" [responsive]="true"
+                [sourceStyle]="{ height: '30rem' }" [targetStyle]="{ height: '30rem' }" breakpoint="1400px"
+                (onMoveToTarget)="aoAssociarPermissao($event.items)"
+                (onMoveToSource)="aoDesassociarPermissao($event.items)">
+                <ng-template let-permissao pTemplate="item">
+                    <div class="flex flex-wrap p-2 align-items-center gap-3">
+                        <div class="flex-1 flex flex-column gap-2">
+                            <span class="font-bold">{{ permissao.descricao }}</span>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-pickList>
         </form>
     </div>
 </div>

@@ -1,0 +1,51 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <form [formGroup]="usuarioForm.group">
+            <div class="card">
+                <h4>Usuário</h4>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-4 p-md-4">
+                        <label for="nome">Nome</label>
+                        <input type="text" placeholder="Nome" formControlName="nome" pInputText>
+                        <app-message [control]="usuarioForm.group.get('nome')" error="required"
+                            text="Informe um nome"></app-message>
+                    </div>
+                    <div class="p-field p-col-4 p-md-4">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="Email" formControlName="email" pInputText>
+                        <app-message [control]="usuarioForm.group.get('email')" error="required"
+                            text="Informe um email"></app-message>
+                    </div>
+                    <div class="p-field p-col-4 p-md-4" *ngIf="!editando">
+                        <label for="senha">Senha</label>
+                        <input type="password" placeholder="Senha" formControlName="senha" pInputText>
+                        <app-message [control]="usuarioForm.group.get('senha')" error="required"
+                            text="Informe uma senha"></app-message>
+                        <label for="senha">Confirmação de senha</label>
+                        <input type="password" [ngModelOptions]="{standalone: true}" placeholder="Confirmação de senha"
+                            [(ngModel)]="confirmacaoSenha" pInputText>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end">
+                    <button pButton style="margin-right: 5px;" class="p-button-secondary" type="button"
+                        (click)="voltarParaListagem()" label="Cancelar"></button>
+                    <button pButton pRipple type="button" (click)="onSubmit()" [disabled]="!usuarioForm.group.valid || (!editando && confirmacaoSenha.length == 0)"
+                        label="Salvar"></button>
+                </div>
+            </div>
+            <p-pickList *ngIf="editando" [source]="listaResultante" [target]="gruposUsuario" sourceHeader="Grupos"
+                targetHeader="Grupos do Usuário" [dragdrop]="true" [responsive]="true"
+                [sourceStyle]="{ height: '30rem' }" [targetStyle]="{ height: '30rem' }" breakpoint="1400px"
+                (onMoveToTarget)="aoAssociarGrupo($event.items)"
+                (onMoveToSource)="aoDesassociarGrupo($event.items)">
+                <ng-template let-grupo pTemplate="item">
+                    <div class="flex flex-wrap p-2 align-items-center gap-3">
+                        <div class="flex-1 flex flex-column gap-2">
+                            <span class="font-bold">{{ grupo.nome }}</span>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-pickList>
+        </form>
+    </div>
+</div>

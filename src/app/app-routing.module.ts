@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'grupos', loadChildren: () => import('../app/grupo/grupo.module').then(m => m.GrupoModule)  },
   { path: 'estados', loadChildren: () => import('../app/estado/estado.module').then(m => m.EstadoModule)  },
   { path: 'restaurantes', loadChildren: () => import('../app/restaurante/restaurante.module').then(m => m.RestauranteModule)  },
+  { path: 'usuarios', loadChildren: () => import('../app/usuario/usuario.module').then(m => m.UsuarioModule)  },
 
   { path: '', redirectTo: 'cidades', pathMatch: 'full' }, 
   { path: 'nao-autorizado', component: NaoAutorizadoComponent },

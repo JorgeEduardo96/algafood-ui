@@ -18,27 +18,57 @@
           <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_COZINHAS')">
             <a routerLink="/cozinhas">Cozinhas</a>
           </li>
-          <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_COZINHAS')">
+          <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_CIDADES')">
             <a routerLink="/cidades">Cidades</a>
           </li>
-          <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_USUARIOS_GRUPOS_PERMISSOES')">
+          <li class="navbar-menuitem" routerLinkActive="ativo"
+            *ngIf="temPermissao('EDITAR_USUARIOS_GRUPOS_PERMISSOES')">
             <a routerLink="/grupos">Grupos</a>
           </li>
-          <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_USUARIOS_GRUPOS_PERMISSOES')">
+          <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_ESTADOS')">
             <a routerLink="/estados">Estados</a>
           </li>
           <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('EDITAR_RESTAURANTES')">
             <a routerLink="/restaurantes">Restaurantes</a>
-          </li>        
+          </li>
+          <li class="navbar-menuitem" routerLinkActive="ativo"
+            *ngIf="temPermissao('CONSULTAR_USUARIOS_GRUPOS_PERMISSOES')">
+            <a routerLink="/usuarios">Usuários</a>
+          </li>
         </ul>
-      </details>      
+      </details>
     </li>
     <li class="navbar-menuitem" routerLinkActive="ativo">
       <details>
         <summary class="summary-header">Relatórios</summary>
-      </details>      
+      </details>
     </li>
+    <li class="navbar-menuitem"><a href="javascript:;" (click)="exibirModalAlteracaoSenha()">Alterar Senha</a></li>
     <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>    
   </ul>
-
 </nav>
+
+<p-dialog header="Alteração de senha" [(visible)]="exibirModal" [modal]="true" [style]="{ width: '50vw' }"
+  [draggable]="false" [resizable]="false">
+  <div class="p-grid">
+    <div class="p-col-12">
+      <div class="card">
+        <div class="p-fluid p-formgrid p-grid">
+          <label for="nome">Senha atual: </label>
+          <input type="password" [(ngModel)]="senhaAtual" pInputText>
+        </div>
+        <div class="p-fluid p-formgrid p-grid">
+          <label for="nome">Nova Senha: </label>
+          <input type="password" [(ngModel)]="senhaNova" pInputText>
+        </div>
+        <div class="p-fluid p-formgrid p-grid">
+          <label for="nome">Confirmação de nova senha: </label>
+          <input type="password" [(ngModel)]="confirmacaoSenha" pInputText>
+        </div>
+      </div>
+    </div>
+    <br />
+    <button pButton style="margin-right: 5px;" icon="pi pi-save" pTooltip="Alterar senha"
+      tooltipPosition="top" (click)="alterarSenha()"></button>
+  </div>
+</p-dialog>

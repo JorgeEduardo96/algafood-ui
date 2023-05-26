@@ -47,3 +47,14 @@ export class EnderecoInput {
     bairro?: string;
     cidadeId = new CidadeIdInput();
 }
+
+export class UsuarioInput {
+    email?: string;
+    nome?: string;
+    senha?: string;
+}
+
+export class SenhaInput {
+    senhaAtual?: string;
+    senhaNova?: string;
+}

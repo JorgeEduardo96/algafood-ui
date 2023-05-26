@@ -34,4 +34,19 @@ export class RestauranteService {
         return this.remoteGateway.put(`${this.url}/${restauranteId}`, restaurante);
     }
 
+    ativar(restauranteId: number): Observable<void> {
+        return this.remoteGateway.put(`${this.url}/${restauranteId}/ativo`, null);
+    }
+
+    inativar(restauranteId: number): Observable<void> {
+        return this.remoteGateway.delete(`${this.url}/${restauranteId}/ativo`);
+    }
+
+    abrir(restauranteId: number): Observable<void> {
+        return this.remoteGateway.put(`${this.url}/${restauranteId}/abertura`, null);
+    }
+
+    fechar(restauranteId: number): Observable<void> {
+        return this.remoteGateway.put(`${this.url}/${restauranteId}/fechamento`, null);
+    }
 }

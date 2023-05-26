@@ -9,6 +9,7 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
+import { PickListModule } from 'primeng/picklist';
 
 import { CoreModule } from '../core/core.module';
 import { GrupoPesquisaComponent } from "./grupo-pesquisa/grupo-pesquisa.component";
@@ -33,6 +34,7 @@ import { GrupoRoutingModule } from "./grupo-routing.module";
         TooltipModule,
         ToolbarModule,
         DropdownModule,
+        PickListModule,
 
         CoreModule,
         GrupoRoutingModule

@@ -6,7 +6,10 @@ import localePt from '@angular/common/locales/pt';
 import {MenubarModule} from 'primeng/menubar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 import { AuthService } from '../seguranca/auth.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
@@ -15,6 +18,7 @@ import { MessageComponent } from './message/message.component';
 import { RemoteGateway } from './remote.gateway';
 import { ErrorHandlerService } from './error-handler.service';
 import { ViaCEPService } from './viacep.service';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -27,12 +31,16 @@ registerLocaleData(localePt, 'pt-BR');
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MenubarModule,
 
+    InputTextModule,
+    ButtonModule,
     ToastModule,
     ConfirmDialogModule,
+    DialogModule,
 
-    TranslateModule.forRoot(),
+    TranslateModule.forRoot()
   ],
   exports: [
     MessageComponent,

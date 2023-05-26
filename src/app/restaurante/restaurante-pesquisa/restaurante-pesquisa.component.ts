@@ -65,6 +65,7 @@ export class RestaurantePesquisaComponent implements OnInit {
   }
 
 
+  // métodos para forma de pagamento
   exibirDialogFormasPagamento(id: any) {
     this.restauranteFormasPagamentoService.listar(id).subscribe({
       next: (response) => {
@@ -89,4 +90,41 @@ export class RestaurantePesquisaComponent implements OnInit {
     })
   }
 
+  // métodos para ativar/inativar restaurante
+  ativarRestaurante(restauranteId: any) {
+    this.restauranteService.ativar(restauranteId).subscribe({
+      complete: () => {
+        this.listar();
+        this.messageService.add({ severity: 'success', detail: 'Restaurante ativado com sucesso!' });
+      }, error: (error) => this.errorHandler.handle(error)
+    })
+  }
+
+  inativarRestaurante(restauranteId: any) {
+    this.restauranteService.inativar(restauranteId).subscribe({
+      complete: () => {
+        this.listar();
+        this.messageService.add({ severity: 'success', detail: 'Restaurante inativado com sucesso!' });
+      }, error: (error) => this.errorHandler.handle(error)
+    })
+  }
+
+  // métodos para abrir/fechar restaurante
+  abrirRestaurante(restauranteId: any) {
+    this.restauranteService.abrir(restauranteId).subscribe({
+      complete: () => {
+        this.listar();
+        this.messageService.add({ severity: 'success', detail: 'Restaurante aberto com sucesso!' });
+      }, error: (error) => this.errorHandler.handle(error)
+    })
+  }
+
+  fecharRestaurante(restauranteId: any) {
+    this.restauranteService.fechar(restauranteId).subscribe({
+      complete: () => {
+        this.listar();
+        this.messageService.add({ severity: 'success', detail: 'Restaurante fechado com sucesso!' });
+      }, error: (error) => this.errorHandler.handle(error)
+    })
+  }
 }
