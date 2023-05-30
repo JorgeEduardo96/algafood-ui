@@ -35,6 +35,10 @@
             *ngIf="temPermissao('CONSULTAR_USUARIOS_GRUPOS_PERMISSOES')">
             <a routerLink="/usuarios">Usuários</a>
           </li>
+          <li class="navbar-menuitem" routerLinkActive="ativo"
+            *ngIf="temPermissao('EDITAR_FORMAS_PAGAMENTO')">
+            <a routerLink="/formas-pagamento">Formas de Pagamento</a>
+          </li>
         </ul>
       </details>
     </li>

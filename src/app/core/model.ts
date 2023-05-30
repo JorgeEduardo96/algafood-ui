@@ -58,3 +58,7 @@ export class SenhaInput {
     senhaAtual?: string;
     senhaNova?: string;
 }
+
+export class FormaPagamentoInput {
+    descricao?: string;
+}

@@ -8,7 +8,6 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToolbarModule } from 'primeng/toolbar';
-import { DropdownModule } from 'primeng/dropdown';
 
 import { EstadoPesquisaComponent } from './estado-pesquisa/estado-pesquisa.component';
 import { EstadoRoutingModule } from './estado-routing.module';
@@ -18,7 +17,8 @@ import { EstadoCadastroComponent } from './estado-cadastro/estado-cadastro.compo
 
 @NgModule({
   declarations: [  
-    EstadoPesquisaComponent, EstadoCadastroComponent
+    EstadoPesquisaComponent,
+    EstadoCadastroComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +32,6 @@ import { EstadoCadastroComponent } from './estado-cadastro/estado-cadastro.compo
     TableModule,
     TooltipModule,
     ToolbarModule,
-    DropdownModule,
 
     CoreModule,
     EstadoRoutingModule

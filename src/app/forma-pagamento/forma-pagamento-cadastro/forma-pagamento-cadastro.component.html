@@ -1,0 +1,35 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <form [formGroup]="formaPagamentoForm.group">
+            <div class="card">
+                <h4>Estado</h4>
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-4 p-md-4">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" placeholder="Descrição" formControlName="descricao" pInputText>
+                        <app-message [control]="formaPagamentoForm.group.get('descricao')" error="required"
+                            text="Informe uma descrição"></app-message>
+                    </div>                   
+                </div>
+                <div style="display: flex; justify-content: flex-end">
+                    <button
+                        pButton
+                        style="margin-right: 5px;"
+                        class="p-button-secondary"
+                        type="button"
+                        (click)="voltarParaListagem()"
+                        label="Cancelar"
+                    ></button>
+                    <button
+                        pButton
+                        pRipple
+                        type="button"
+                        (click)="onSubmit()"
+                        [disabled]="!formaPagamentoForm.group.valid"
+                        label="Salvar"
+                    ></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -20,7 +20,7 @@ export class EstadoPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private estadoService: EstadoService,
     private title: Title,
-    private confirmationSerivce: ConfirmationService,
+    private confirmationService: ConfirmationService,
     private router: Router
   ) {}
 
@@ -42,7 +42,7 @@ export class EstadoPesquisaComponent implements OnInit {
   }
 
   confirmarExclusao(estado: any): void {
-    this.confirmationSerivce.confirm({
+    this.confirmationService.confirm({
       message: 'Tem certeza que deseja excluir?',
       accept: () => {
         this.excluir(estado);
